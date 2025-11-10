@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Горячие клавиши VS Code</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .shortcuts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .category {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .category h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+            font-size: 1.4rem;
+        }
+
+        .shortcut-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: background-color 0.2s ease;
+        }
+
+        .shortcut-item:hover {
+            background: #e9ecef;
+        }
+
+        .keys {
+            background: #333;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.9rem;
+            min-width: 180px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .description {
+            flex: 1;
+            margin-left: 15px;
+            color: #555;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            color: #856404;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 4px solid #ffc107;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            opacity: 0.8;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-left: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .shortcuts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .shortcut-item {
+                flex-direction: column;
+            }
+            
+            .keys {
+                min-width: auto;
+                margin-bottom: 8px;
+            }
+            
+            .description {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Горячие клавиши VS Code</h1>
+            <p>Для бывших пользователей PyCharm Community Edition</p>
+        </div>
+
+        <div class="highlight">
+            <strong>💡 Быстрый старт:</strong> Для автоматического создания HTML-документа введите <kbd>!</kbd> и нажмите <kbd>Tab</kbd>
+        </div>
+
+        <div class="shortcuts-grid">
+            <!-- Навигация и редактирование -->
+            <div class="category">
+                <h2>🎯 Навигация и редактирование</h2>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Ctrl + D</div>
+                    <div class="description">Выделить следующее вхождение текущего выделения</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Ctrl + Shift + L</div>
+                    <div class="description">Выделить все вхождения текущего выделения</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Alt + Click</div>
+                    <div class="description">Добавить курсор в указанное место</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Ctrl + Alt + ↑/↓</div>
+                    <div class="description">Добавить курсор выше/ниже</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Ctrl + /</div>
+                    <div class="description">Закомментировать/раскомментировать строку</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Alt + Shift + ↑/↓</div>
+                    <div class="description">Скопировать строку вверх/вниз</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Ctrl + Shift + K</div>
+                    <div class="description">Удалить строку</div>
+                </div>
+            </div>
+
+            <!-- Блоковое выделение -->
+            <div class="category">
+                <h2>📊 Блоковое выделение <span class="tag">Аналог PyCharm</span></h2>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Shift + Alt + Mouse drag</div>
+                    <div class="description">Блоковое выделение мышью (аналог Alt+Shift+Insert)</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Ctrl + Shift + Alt + ↑/↓</div>
+                    <div class="description">Блоковое выделение стрелками</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Ctrl + Shift + Alt + PgUp/PgDn</div>
+                    <div class="description">Блоковое выделение страницами</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Shift + Alt + I</div>
+                    <div class="description">Добавить курсоры к концам всех выделенных строк</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Ctrl + Shift + P</div>
+                    <div class="description">Открыть командную палитру → "Column Selection"</div>
+                </div>
+            </div>
+
+            <!-- Git -->
+            <div class="category">
+                <h2>🔧 Git</h2>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Ctrl + Shift + G</div>
+                    <div class="description">Открыть панель Git</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Ctrl + Enter</div>
+                    <div class="description">Commit (когда в поле сообщения коммита)</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Ctrl + Shift + Enter</div>
+                    <div class="description">Push</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">⚠ Установи GitLens</div>
+                    <div class="description">Для коммита одной кнопкой как в PyCharm</div>
+                </div>
+            </div>
+
+            <!-- Файлы и поиск -->
+            <div class="category">
+                <h2>📁 Файлы и поиск</h2>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Ctrl + N</div>
+                    <div class="description">Новый файл</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Ctrl + O</div>
+                    <div class="description">Открыть файл</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Ctrl + S</div>
+                    <div class="description">Сохранить</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Ctrl + F</div>
+                    <div class="description">Поиск в файле</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Ctrl + H</div>
+                    <div class="description">Замена в файле</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Ctrl + Shift + F</div>
+                    <div class="description">Поиск по всем файлам</div>
+                </div>
+            </div>
+
+            <!-- Дополнительно -->
+            <div class="category">
+                <h2>⚡ Дополнительно</h2>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Ctrl + `</div>
+                    <div class="description">Открыть/закрыть терминал</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">F12</div>
+                    <div class="description">Переход к определению</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Alt + ←/→</div>
+                    <div class="description">Назад/вперед по истории навигации</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Ctrl + B</div>
+                    <div class="description">Скрыть/показать боковую панель</div>
+                </div>
+                
+                <div class="shortcut-item">
+                    <div class="keys">Ctrl + Shift + P</div>
+                    <div class="description">Командная палитра (очень полезно!)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Создано для быстрого перехода с PyCharm на VS Code • 2024</p>
+        </div>
+    </div>
+</body>
+</html>
