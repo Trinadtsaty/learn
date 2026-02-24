@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git команды - Шпаргалка</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .git-logo {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .category {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid #f14e32;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .category h2 {
+            color: #f14e32;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f14e32;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .command-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: background-color 0.2s ease;
+        }
+
+        .command-item:hover {
+            background: #e9ecef;
+        }
+
+        .command {
+            background: #2c3e50;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            display: block;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 4px solid #f14e32;
+        }
+
+        .description {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .example {
+            background: #fff3cd;
+            color: #856404;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.85rem;
+            margin-top: 8px;
+            border-left: 3px solid #ffc107;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .warning {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #dc3545;
+        }
+
+        .tip {
+            background: #d1ecf1;
+            color: #0c5460;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .category {
+                padding: 20px;
+            }
+        }
+
+        .icon {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="git-logo">🐙</div>
+            <h1>Git Commands - Полная шпаргалка</h1>
+            <p>Все основные команды Git с пояснениями и примерами</p>
+        </div>
+
+        <div class="tip">
+            <strong>💡 Подсказка:</strong> Все команды Git выполняются в терминале. Для копирования команды - кликните на неё.
+        </div>
+
+        <div class="categories-grid">
+            <!-- Основные команды -->
+            <div class="category">
+                <h2>📁 Основные команды</h2>
+                
+                <div class="command-item">
+                    <code class="command">git init</code>
+                    <div class="description">Инициализировать новый Git репозиторий в текущей папке</div>
+                    <div class="example"># Создает скрытую папку .git</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git clone [url]</code>
+                    <div class="description">Склонировать удаленный репозиторий на локальную машину</div>
+                    <div class="example">git clone https://github.com/user/repo.git</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git status</code>
+                    <div class="description">Показать состояние рабочей директории и staging area</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git log</code>
+                    <div class="description">Показать историю коммитов</div>
+                    <div class="example">git log --oneline # Краткий формат</div>
+                </div>
+            </div>
+
+            <!-- Работа с файлами -->
+            <div class="category">
+                <h2>📄 Работа с файлами</h2>
+                
+                <div class="command-item">
+                    <code class="command">git add [file]</code>
+                    <div class="description">Добавить файл в staging area</div>
+                    <div class="example">git add index.html # Конкретный файл</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git add .</code>
+                    <div class="description">Добавить ВСЕ измененные файлы в staging area</div>
+                    <div class="example"><span class="tag">Внимание!</span> Добавляет все файлы</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git reset [file]</code>
+                    <div class="description">Убрать файл из staging area (отменить git add)</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git rm [file]</code>
+                    <div class="description">Удалить файл из репозитория и рабочей директории</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git mv [old] [new]</code>
+                    <div class="description">Переименовать или переместить файл</div>
+                </div>
+            </div>
+
+            <!-- Коммиты -->
+            <div class="category">
+                <h2>💾 Коммиты</h2>
+                
+                <div class="command-item">
+                    <code class="command">git commit -m "сообщение"</code>
+                    <div class="description">Создать коммит с сообщением</div>
+                    <div class="example">git commit -m "Добавлена главная страница"</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git commit -am "сообщение"</code>
+                    <div class="description">Добавить ВСЕ измененные файлы и сделать коммит</div>
+                    <div class="example"><span class="tag">Упрощение</span> git add . + git commit</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git commit --amend</code>
+                    <div class="description">Изменить последний коммит (добавить файлы или изменить сообщение)</div>
+                    <div class="example"><span class="tag">Осторожно!</span> Изменяет историю</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git show [commit]</code>
+                    <div class="description">Показать информацию о конкретном коммите</div>
+                </div>
+            </div>
+
+            <!-- Ветки -->
+            <div class="category">
+                <h2>🌿 Ветки (Branches)</h2>
+                
+                <div class="command-item">
+                    <code class="command">git branch</code>
+                    <div class="description">Показать все ветки (текущая выделена *)</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git branch [name]</code>
+                    <div class="description">Создать новую ветку</div>
+                    <div class="example">git branch feature/login</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git checkout [branch]</code>
+                    <div class="description">Переключиться на ветку</div>
+                    <div class="example">git checkout develop</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git checkout -b [name]</code>
+                    <div class="description">Создать и переключиться на новую ветку</div>
+                    <div class="example"><span class="tag">Популярно</span> git checkout -b feature/payment</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git merge [branch]</code>
+                    <div class="description">Влить указанную ветку в текущую</div>
+                    <div class="example">git merge feature/login</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git branch -d [name]</code>
+                    <div class="description">Удалить ветку (безопасно)</div>
+                </div>
+            </div>
+
+            <!-- Удаленные репозитории -->
+            <div class="category">
+                <h2>☁️ Удаленные репозитории</h2>
+                
+                <div class="command-item">
+                    <code class="command">git remote add [name] [url]</code>
+                    <div class="description">Добавить удаленный репозиторий</div>
+                    <div class="example">git remote add origin https://github.com/user/repo.git</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git push [remote] [branch]</code>
+                    <div class="description">Отправить коммиты в удаленный репозиторий</div>
+                    <div class="example">git push origin main</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git pull [remote] [branch]</code>
+                    <div class="description">Скачать изменения из удаленного репозитория и смержить</div>
+                    <div class="example">git pull origin develop</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git fetch [remote]</code>
+                    <div class="description">Скачать изменения из удаленного репозитория (без мержа)</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git remote -v</code>
+                    <div class="description">Показать все настроенные удаленные репозитории</div>
+                </div>
+            </div>
+
+            <!-- Отмена изменений -->
+            <div class="category">
+                <h2>↩️ Отмена изменений</h2>
+                
+                <div class="command-item">
+                    <code class="command">git checkout -- [file]</code>
+                    <div class="description">Отменить изменения в файле (до последнего коммита)</div>
+                    <div class="example">git checkout -- script.js</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git reset --hard [commit]</code>
+                    <div class="description">Откатить к определенному коммиту (удаляет последующие коммиты)</div>
+                    <div class="example"><span class="tag">Опасно!</span> git reset --hard HEAD~1</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git revert [commit]</code>
+                    <div class="description">Создать новый коммит, отменяющий изменения указанного коммита</div>
+                    <div class="example"><span class="tag">Безопасно</span> Не переписывает историю</div>
+                </div>
+                
+                <div class="command-item">
+                    <code class="command">git clean -fd</code>
+                    <div class="description">Удалить неотслеживаемые файлы и директории</div>
+                    <div class="example"><span class="tag">Осторожно!</span> Файлы удаляются навсегда</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ Внимание!</strong> Команды с <span class="tag">Опасно!</span> и <span class="tag">Осторожно!</span> могут привести к потере данных. Используйте их аккуратно!
+        </div>
+
+        <div class="footer">
+            <p>Git Commands Reference • Сохраните эту страницу для быстрого доступа • 2024</p>
+        </div>
+    </div>
+
+    <script>
+        // Добавляем функциональность копирования при клике на команду
+        document.querySelectorAll('.command').forEach(command => {
+            command.addEventListener('click', function() {
+                const textToCopy = this.textContent;
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    const originalText = this.textContent;
+                    this.textContent = '✓ Скопировано!';
+                    this.style.background = '#28a745';
+                    
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.style.background = '#2c3e50';
+                    }, 1500);
+                });
+            });
+            
+            // Меняем курсор при наведении на команду
+            command.style.cursor = 'pointer';
+        });
+    </script>
+</body>
+</html>
