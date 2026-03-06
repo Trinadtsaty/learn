@@ -52,3 +52,13 @@ go run main.go
 Компилируем
 go build main.go
 
+Создание окружения, ввести команду:
+go mod init <имя_модуля>
+
+Переходим в папку
+cd /path/to/myproject
+
+Создаем модуль (имя может быть любым, но часто = имени папки)
+go mod init myproject
+или
+go mod init github.com/username/myproject
