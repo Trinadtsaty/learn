@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+    "Methods/bank"
+    "fmt"
+)
 
 type Person struct {
     Name string
@@ -77,6 +80,15 @@ func main() {
     fmt.Println("_______________________________________")
     fmt.Printf("Вызываем метод DoubleSave для num=%v, ", num) // 84
     num.DoubleSave()
-    fmt.Printf("Результат: %v", num) // 84   
+    fmt.Printf("Результат: %v\n", num) // 84   
+    fmt.Println("_______________________________________")
+    fmt.Println("Импортированный тип данных и методы")
+    acc := bank.NewAccount()
+    fmt.Printf("Создаём переменную типа NewAccount из импортированого пакета acc=%v,\n", acc)
+    acc.Deposit(100.50)
+    fmt.Printf("Записываем в переменную значение через метод, acc=%v,\n", acc)
+    fmt.Println("Вызываем встроенный метод, который показывает баланс")
+    fmt.Printf("Баланс: %.2f\n", acc.GetBalance())
+    fmt.Println("_______________________________________")
 
 }
